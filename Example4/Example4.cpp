@@ -14,13 +14,12 @@ int main()
 
 	int dx = -10 * sin(radian);
 	int dz =  10 * cos(radian);
-
 	
 	px += dx;
-	pz += dz - 1;
+	pz += dz;
 
-	BlockID my_emerald = createBlock(BLOCK_EMERALD);
-	BlockID my_obsidian = createBlock(BLOCK_OBSIDIAN);
+	ConcreteID my_lime = createConcrete(COLOR_LIME, true);
+	ConcreteID my_black = createConcrete(COLOR_BLACK, true);
 
 	for (int h = 0; h < 5; h++) // 1층 ~ 5층
 	{
@@ -37,8 +36,8 @@ int main()
 
 					else
 					{
-						locateBlock(my_emerald, px + i, py + h, pz + j);
-						locateBlock(my_emerald, px + j, py + h, pz + i);
+						locateBlock(my_lime, px + i, py + h, pz + j);
+						locateBlock(my_lime, px + j, py + h, pz + i);
 					}
 				}
 
@@ -62,19 +61,19 @@ int main()
 				{
 					if (abs(i) * abs(j) == 4)
 					{
-						locateBlock(my_emerald, px + i, py + h, pz + j);
+						locateBlock(my_lime, px + i, py + h, pz + j);
 					}
 
 					else if (abs(i) == 3 || abs(j) == 3)
 					{
-						locateBlock(my_emerald, px + i, py + h, pz + j);
-						locateBlock(my_emerald, px + j, py + h, pz + i);
+						locateBlock(my_lime, px + i, py + h, pz + j);
+						locateBlock(my_lime, px + j, py + h, pz + i);
 					}
 
 					else if (h == 5 && abs(i) * abs(j) <= 2)
 					{
-						locateBlock(my_obsidian, px + i, py + h, pz + j);
-						locateBlock(my_obsidian, px + j, py + h, pz + i);
+						locateBlock(my_black, px + i, py + h, pz + j);
+						locateBlock(my_black, px + j, py + h, pz + i);
 					}
 				}
 
